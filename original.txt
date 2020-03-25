@@ -1,0 +1,46 @@
+#include <stdio.h>
+
+
+#define TRUE 1
+#define FALSE 0
+
+int main() {
+
+	int p1=2, p2=3, p3=5, p4=7, next, i, n, prime;
+
+	printf("Entrada: ");
+	scanf("%d", &n);
+
+	while (TRUE){
+		if((p1*p1) + (p2*p2) + (p3*p3) + (p4*p4) == n){
+			printf("Saida: %dˆ2 + %dˆ2 + %dˆ2 + %dˆ2\n", p1, p2, p3, p4);
+				break;
+		}
+		next = p4 + 2;
+		if (next > n) {
+				printf("Impossivel a representacao");
+				break;}
+			if(next < n) {
+			prime = FALSE;
+			while (next < n && prime == FALSE) {
+				prime = TRUE;
+				for (i=3; i < next && prime == TRUE; i+=2) {
+					if (next % i == 0)
+						prime = FALSE;		
+				}
+				if (prime == TRUE) {
+					p1 = p2;
+					p2 = p3;
+					p3 = p4;
+					p4 = next;
+			}
+				else {
+					next += 2;
+							}
+				
+						}
+					}
+				}
+
+	return 0;
+	}
